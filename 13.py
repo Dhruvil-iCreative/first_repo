@@ -14,6 +14,5 @@ def check(s,str):
         else:
             continue
 
-check(s,str)
-print(l2)
+
 
