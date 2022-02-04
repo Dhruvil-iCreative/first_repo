@@ -1,4 +1,3 @@
-'''[([1, 3, 2, 32, 19], [19, 2, 48, 19], [], [9, 35, 4], [3, 19]),19]'''
 nl=int(input("Enter Number of inner list:"))
 main_l=[]
 for o in range(nl):
