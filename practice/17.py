@@ -1,0 +1,10 @@
+a=7
+b=3
+print(a&b)
+print(a|b|a)
+print(a^b)
+print(~a)
+print(a<<b)
+print(a>>b)
+a&=2
+print(a)
