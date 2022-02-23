@@ -1,5 +1,5 @@
 <odoo>
-    <record id="hospital_form" model="ir.ui.view">
+    <record id="hospital_form_wizard" model="ir.ui.view">
         <field name="name">hospital wizard</field>
         <field name="model">hospital.wizard</field>
         <field name="arch" type="xml">

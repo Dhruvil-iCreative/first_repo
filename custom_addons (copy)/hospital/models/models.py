@@ -11,8 +11,9 @@ class hospital(models.Model):
     mobile=fields.Char()
     email=fields.Char()
     gender=fields.Selection([('m',"Male"),("f","Female"),("o","Other")])
+    # reason = fields.Text()
     city=fields.Selection([("a","Ahmedabad"),("b","Baroda"),("r","Rajkot"),("s","Surat")])
-    reason = fields.Text()
+
     disease=fields.Selection([("d","Dangue"),("v","Viral"),("m","Maleria"),("d","Diarhea")])
     visit_fee = fields.Integer()
     medication_fee=fields.Integer()

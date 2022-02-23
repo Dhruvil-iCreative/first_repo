@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="every_tree">
+            <field name="name">Every Tree View</field>
+            <field name="model">every.every</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="fname"/>
+                    <field name="lname"/>
+                    <field name="gender" widget="radio"/>
+                    <field name="city"/>
+                    <field name="t_doc"/>
+                    <field name="t_doc_number" widget="phone"/>
+                    <field name="t_doc_exp"/>
+                    <field name="t_doc_qua"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="every_form">
+            <field name="name">Every Form View</field>
+            <field name="model">every.every</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="fname" required="True"/>
+                        <field name="lname" required="True"/>
+                        <field name="gender" widget="radio"/>
+                        <field name="city"/>
+                    </group>
+                    <group>
+                        <field name="mobile" widget="phone" required="True"/>
+                        <field name="email" widget="email"/>
+
+                    </group>
+                    <group>
+                        <field name="visit_fee"/>
+                        <field name="medication_fee"/>
+                        <field name="total_fee"/>
+                    </group>
+                    <group>
+                        <field name="t_doc"/>
+                        <field name="t_doc_number" widget="phone"/>
+                        <field name="t_doc_exp"/>
+                        <field name="t_doc_qua"/>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="every.action_window">
+            <field name="name">every window</field>
+            <field name="res_model">every.every</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- server action to the one above -->
+
+        <record model="ir.actions.server" id="every.action_server">
+            <field name="name">every server</field>
+            <field name="model_id" ref="model_every_every"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = {
+                "type": "ir.actions.act_window",
+                "view_mode": "tree,form",
+                "res_model": model._name,
+                }
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
