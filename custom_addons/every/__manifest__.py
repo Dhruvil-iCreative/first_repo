@@ -27,6 +27,8 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/menu.xml',
+        'wizard/discount_apply_view_wiz.xml',
+        'wizard/penalty_add_view_wiz.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

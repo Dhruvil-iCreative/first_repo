@@ -25,11 +25,19 @@ class hospital(models.Model):
     rec_opt=fields.Selection([("y","Yes"),("n","No")],string="Recommendation Option")
     rec_hos=fields.Char(string="Recommended Hospital")
     rec_doc=fields.Char(string="Doctor name")
-
+    patient_count=fields.Integer(compute="count_patients",store=True)
     @api.depends('visit_fee','medication_fee')
     def _value_pc(self):
         for record in self:
             record.total_fee = float(record.visit_fee) + float(record.medication_fee)
 
+    def back_to_every(self):
+        return self.env['ir.actions.act_window']._for_xml_id("every.action_window")
+
+    @api.depends('mobile')
+    def count_patients(self):
+        for record in self:
+            patient_count=self.env['hospital.hospital'].search_count([('mobile','=',record.id)])
+            record.patient_count=patient_count
 
 

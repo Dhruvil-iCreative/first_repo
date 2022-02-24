@@ -9,12 +9,13 @@
                 <tree>
                     <field name="fname"/>
                     <field name="lname"/>
-                    <field name="gender" widget="radio"/>
+                    <field name="gender" />
                     <field name="city"/>
                     <field name="t_doc"/>
                     <field name="t_doc_number" widget="phone"/>
                     <field name="t_doc_exp"/>
                     <field name="t_doc_qua"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
@@ -25,9 +26,29 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="hospital_open"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-history"
+                                    string="Hospital">
+                                <div class="o_stat_info">
+                                    <field name="patient_count" class="o_stat_value"/>
+                                    <span class ="o_stat_text">patients</span>
+                                </div>
+                            </button>
+                        </div>
+                    </group>
+                    <header>
+                        <button name="action_process" id="process_activated" string="Process" type="object" states="start,confirm"/>
+                        <button name="action_confirm" id="process_confirm" string="Confirm" type="object" class="btn-primary" states="in_process,cancel"/>
+                        <button name="action_cancel" id="process_cancelled" string="Cancel" type="object" states="start,in_process"/>
+                        <field name="state" widget="statusbar" statusbar_visible="every_form,hospital_form,all_done,cancel"/>
+                    </header>
+                    <group>
                         <field name="fname" required="True"/>
                         <field name="lname" required="True"/>
-                        <field name="gender" widget="radio"/>
+                        <field name="gender" widget="radio" options="{'horizontal': true}"/>
                         <field name="city"/>
                     </group>
                     <group>
@@ -45,6 +66,15 @@
                         <field name="t_doc_number" widget="phone"/>
                         <field name="t_doc_exp"/>
                         <field name="t_doc_qua"/>
+                    </group>
+                    <group>
+                        <button name="wiz_open" string="Discount with wizard" type="object"/>
+                    </group>
+                    <group>
+                        <button name="wiz_open2" string="Penalty with wizard" type="object"/>
+                    </group>
+                    <group>
+                        <button type="action" string="Open Hospital View" name="%(hospital.hospital_action_window)d" class="btn-sm btn-link mb4 fa fa-globe"/>
                     </group>
 
                 </form>
