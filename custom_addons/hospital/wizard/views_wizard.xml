@@ -27,7 +27,7 @@
     <record id="wizard_demo_action_window" model="ir.actions.act_window">
         <field name="name">Print</field>
         <field name="res_model">hospital.wizard</field>
-        <field name="view_id" ref="hospital_form"/>
+        <field name="view_id" ref="hospital_form_wizard"/>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>

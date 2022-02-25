@@ -3,6 +3,7 @@ from odoo import models, fields, api
 
 class hospital(models.Model):
     _name = 'hospital.hospital'
+    _inherit = ["mail.thread","mail.activity.mixin"]
     _description = 'hospital.hospital'
 
     fname = fields.Char()
@@ -11,7 +12,6 @@ class hospital(models.Model):
     mobile=fields.Char()
     email=fields.Char()
     gender=fields.Selection([('m',"Male"),("f","Female"),("o","Other")])
-    # reason = fields.Text()
     city=fields.Selection([("a","Ahmedabad"),("b","Baroda"),("r","Rajkot"),("s","Surat")])
 
     disease=fields.Selection([("d","Dangue"),("v","Viral"),("m","Maleria"),("d","Diarhea")])
@@ -37,7 +37,7 @@ class hospital(models.Model):
     @api.depends('mobile')
     def count_patients(self):
         for record in self:
-            patient_count=self.env['hospital.hospital'].search_count([('mobile','=',record.id)])
-            record.patient_count=patient_count
+            patient_count=self.search_count([('mobile','=',record.id)])
+            record.patient_count = patient_count
 
 

@@ -1,5 +1,46 @@
 <odoo>
     <data>
+        <record id="hospital_kanban" model="ir.ui.view">
+            <field name="name">hospital.kanban</field>
+            <field name="model">hospital.hospital</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="fname"/>
+                    <field name="lname"/>
+                    <field name="email" widget="email"/>
+                    <field name="mobile" widget="mobile"/>
+                    <field name="image" widget="image"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <field name="image" widget="image"/>
+                                <div class="o_kanban_details">
+                                    <ul>
+                                        <li>
+                                            ID:<field name="id"/>
+                                        </li>
+                                        <li>
+                                            First_Name:<field name="fname"/>
+                                        </li>
+                                        <li>
+                                            Last_Name:<field name="lname"/>
+                                        </li>
+                                        <li>
+                                            Email:<field name="email" widget="email"/>
+                                        </li>
+                                        <li>
+                                            Mobile:<field name="mobile" widget="mobile"/>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
         <!-- explicit list view definition -->
         <record model="ir.ui.view" id="hospital_list">
             <field name="name">hospital list</field>
@@ -58,6 +99,7 @@
                             <field name="visit_fee"/>
                             <field name="medication_fee"/>
                             <field name="total_fee"/>
+                            <field name="patient_count"/>
                         </group>
                         <notebook>
                             <page string="Treatement">
@@ -77,6 +119,11 @@
                             </page>
                         </notebook>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                        <field name="activity_ids"/>
+                    </div>
                 </form>
             </field>
         </record>
@@ -87,8 +134,8 @@
         <record model="ir.actions.act_window" id="hospital_action_window">
             <field name="name">Patient window</field>
             <field name="res_model">hospital.hospital</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="hospital_form"/>
+            <field name="view_mode">tree,form,kanban</field>
+<!--            <field name="view_id" ref="hospital_list"/>-->
         </record>
 
 

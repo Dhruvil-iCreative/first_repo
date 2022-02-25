@@ -7,13 +7,14 @@ class every(models.Model):
     _name = 'every.every'
     _inherit='hospital.hospital'
     _description = 'every.every'
-
+    image = fields.Binary()
     t_doc = fields.Char(string="Treatment Doctor")
     t_doc_number = fields.Char(string="Contact Number")
     t_doc_exp = fields.Integer(string="Experience")
     t_doc_qua = fields.Char(compute="_value_pc_1",store=True,string="Level of Doctor")
     state = fields.Selection([("start","Start"),("in_process","InProcess"),("confirm","Confirm"),("cancel","Cancel")],default="start",string="Status")
-
+    partner_id = fields.Many2one("res.partner")
+    city_1 = fields.Char(related="partner_id.city",readonly=False)
 
     def action_process(self):
         self.state="in_process"
