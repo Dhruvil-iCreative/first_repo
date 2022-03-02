@@ -6,7 +6,7 @@ from odoo import models, fields, api
 class begin(models.Model):
     _name = 'begin.begin'
     _description = 'begin.begin'
-
+    id=fields.Integer()
     name = fields.Char()
     value = fields.Integer()
     value2 = fields.Float(compute="_value_pc", store=True)

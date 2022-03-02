@@ -148,7 +148,7 @@
             <field name="model">every.every</field>
             <field name="arch" type="xml">
                 <search string="Record">
-                    <field name="t_doc" string="Treatement Doctor Name"/>
+<!--                    <field name="t_doc" string="Treatement Doctor Name"/>-->
                     <field name="state"/>
                     <field name="city"/>
                     <separator/>
@@ -157,6 +157,8 @@
                     <filter string="Other" name="other" domain="[('gender','=','o')]"/>
                     <group expand='1' string='Group by...'>
                         <filter string='Gender' name="gender" context="{'group_by' : 'gender'}"/>
+                        <filter string='state' name="state" context="{'group_by' : 'state'}"/>
+                        <filter string='t_doc' name="t_doc" context="{'group_by' : 't_doc'}"/>
                         <!--                        <filter string='Package Type' name="package_type" domain="[]"-->
                         <!--                                context="{'group_by' : 'package_type_id'}"/>-->
                     </group>
@@ -171,6 +173,9 @@
             <field name="name">every window</field>
             <field name="res_model">every.every</field>
             <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{'search_default_t_doc' : 1,'search_default_male' : 1}</field>
+<!--            <field name="context">{'search_default_male' : 1}</field>-->
+<!--            <field name="context">{'search_default_state' : 1}</field>-->
         </record>
 
 

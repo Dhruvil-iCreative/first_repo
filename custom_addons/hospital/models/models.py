@@ -26,6 +26,7 @@ class hospital(models.Model):
     rec_hos=fields.Char(string="Recommended Hospital")
     rec_doc=fields.Char(string="Doctor name")
     patient_count=fields.Integer(compute="count_patients",store=True)
+
     @api.depends('visit_fee','medication_fee')
     def _value_pc(self):
         for record in self:
