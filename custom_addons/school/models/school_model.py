@@ -10,3 +10,4 @@ class school(models.Model):
     name = fields.Char()
     departments_id_1=fields.Many2many("department.department",string="Department")
     courses_id_1=fields.Many2many(string="Course",related="departments_id_1.courses_id")
+    # student_id=fields.One2many("student.student","school_id_1",string="Students")

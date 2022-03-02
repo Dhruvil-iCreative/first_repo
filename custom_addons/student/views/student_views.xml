@@ -16,6 +16,7 @@
                     <field name="school_id_1"/>
                     <field name="departmentss" widget="many2many_tags"/>
                     <field name="coursess" widget="many2many_tags"/>
+                    <field name="appointment_id"/>
                 </tree>
             </field>
         </record>
@@ -25,17 +26,47 @@
             <field name="model">student.student</field>
             <field name="arch" type="xml">
                 <form>
-                    <group>
-                        <field name="fname"/>
-                        <field name="lname"/>
-                        <field name="mobile" widget="phone"/>
-                        <field name="email" widget="email"/>
-                        <field name="gender" widget="radio"/>
-                        <field name="city"/>
-                        <field name="school_id_1"/>
-                        <field name="departmentss" widget="many2many"/>
-                        <field name="coursess" widget="many2many_tags"/>
-                    </group>
+                    <sheet>
+                        <group>
+                            <field name="fname"/>
+                            <field name="lname"/>
+                            <field name="mobile" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="gender" widget="radio"/>
+                            <field name="city"/>
+                            <field name="school_id_1"/>
+                            <field name="departmentss" widget="many2many_tags"/>
+                            <field name="coursess" widget="many2many_tags"/>
+                        </group>
+                        <notebook>
+                            <page string="Appointments" name="appointment">
+                                <group>
+                                    <field name="appointment_id" readonly="1">
+                                        <tree editable="bottom">
+                                            <field name="date"/>
+                                            <field name="prof_name"/>
+                                            <field name="student_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Tasks" name="tasks_check">
+                                <group>
+                                    <group>
+                                        <field name="task_ids" widget="many2many_checkboxes"/>
+                                    </group>
+                                    <group>
+                                        <field name="checklist_progress" widget="percentpie"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                        <field name="activity_ids"/>
+                    </div>
                 </form>
             </field>
         </record>
@@ -65,13 +96,7 @@
             </record>
         -->
 
-        <!-- Top menu item -->
 
-        <menuitem name="student" id="student.menu_root"/>
-
-        <!-- menu categories -->
-
-        <menuitem name="Students" id="student.menu_1" parent="student.menu_root" action="student_action"/>
         <!--    <menuitem name="Menu 2" id="student.menu_2" parent="student.menu_root"/>-->
 
         <!-- actions -->
