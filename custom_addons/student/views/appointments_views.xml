@@ -10,6 +10,7 @@
                     <field name="date"/>
                     <field name="prof_name"/>
                     <field name="student_id"/>
+                    <field name="emergency"/>
                 </tree>
             </field>
         </record>
@@ -25,6 +26,8 @@
                             <field name="date"/>
                             <field name="prof_name"/>
                             <field name="student_id"/>
+                            <field name="emergency"/>
+                            <field name="emergency_1"/>
                         </group>
                     </sheet>
                 </form>

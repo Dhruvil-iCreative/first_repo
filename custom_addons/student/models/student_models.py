@@ -17,19 +17,19 @@ class student(models.Model):
     email = fields.Char()
     gender = fields.Selection([('m', "Male"), ("f", "Female"), ("o", "Other")])
     city = fields.Selection([("a", "Ahmedabad"), ("b", "Baroda"), ("r", "Rajkot"), ("s", "Surat")])
-    school_id_1=fields.Many2one(comodel_name="school.school",string="School")
-    departmentss=fields.Many2many(string="Department",related="school_id_1.departments_id_1")
-    coursess=fields.Many2many(string="Courses",related="departmentss.courses_id")
-    appointment_id=fields.One2many('appointment.appointment','student_id',string="Appointment")
+    school_id_1 = fields.Many2one(comodel_name="school.school",string="School")
+    departmentss = fields.Many2many(string="Department",related="school_id_1.departments_id_1")
+    coursess = fields.Many2many(string="Courses",related="departmentss.courses_id")
+    appointment_id = fields.One2many('appointment.appointment','student_id',string="Appointment")
     task_ids = fields.Many2many("tasks.tasks",string="Task Checklist")
-    checklist_progress=fields.Float(compute="tasks_progress",string="Progress",store=True,default=0.0)
-
+    checklist_progress = fields.Float(compute="tasks_progress",string="Progress",store=True,default=0.0)
+    tod = fields.Datetime(comodel_name='Date current action', default=lambda self: fields.Datetime.now(), string="Apply On")
 
     @api.depends('task_ids')
     def tasks_progress(self):
         '''return the value of the progress done after clicking the checkboxes'''
         for rec in self:
-            total_len=self.env['tasks.tasks'].search_count([])
+            total_len = self.env['tasks.tasks'].search_count([])
             check_list_len = len(rec.task_ids)
-            if total_len!=0:
-                rec.checklist_progress=(check_list_len*100)/total_len
+            if total_len != 0:
+                rec.checklist_progress = (check_list_len*100)/total_len

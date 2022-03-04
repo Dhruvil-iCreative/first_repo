@@ -17,6 +17,7 @@
                     <field name="departmentss" widget="many2many_tags"/>
                     <field name="coursess" widget="many2many_tags"/>
                     <field name="appointment_id"/>
+                    <field name="checklist_progress" widget="progressbar"/>
                 </tree>
             </field>
         </record>
@@ -34,9 +35,10 @@
                             <field name="email" widget="email"/>
                             <field name="gender" widget="radio"/>
                             <field name="city"/>
-                            <field name="school_id_1"/>
+                            <field name="school_id_1" widget="selection"/>
                             <field name="departmentss" widget="many2many_tags"/>
                             <field name="coursess" widget="many2many_tags"/>
+                            <field name="tod"/>
                         </group>
                         <notebook>
                             <page string="Appointments" name="appointment">

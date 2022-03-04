@@ -15,7 +15,7 @@
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click">
                                 <field name="image" widget="image"/>
-                                <div class="o_kanban_details">
+                                <div class="oe_kanban_details">
                                     <ul>
                                         <li>
                                             ID:<field name="id"/>
@@ -24,7 +24,7 @@
                                             First_Name:<field name="fname"/>
                                         </li>
                                         <li>
-                                            Last_Name:<field name="lname"/>
+                                            <field name="lname" options="{'invisible' : [('lname','!=','True')]}"/>
                                         </li>
                                         <li>
                                             Email:<field name="email" widget="email"/>
