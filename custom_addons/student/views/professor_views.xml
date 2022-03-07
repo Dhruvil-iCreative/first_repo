@@ -12,6 +12,7 @@
                     <field name="specialization_course_id"/>
                     <field name="experience"/>
                     <field name="online"/>
+                    <field name="appointments"/>
                 </tree>
             </field>
         </record>
@@ -29,6 +30,8 @@
                             <field name="specialization_course_id"/>
                             <field name="experience"/>
                             <field name="online"/>
+                            <field name="scheduled_appnt_id"/>
+                            <field name="appointments"/>
                         </group>
                     </sheet>
                 </form>
