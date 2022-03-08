@@ -8,7 +8,7 @@ class courses(models.Model):
     name = fields.Char()
     duration = fields.Integer()
     description = fields.Text()
-    fees=fields.Integer()
+    fees = fields.Integer()
 
     # @api.depends('duration')
     # def _value_pc(self):

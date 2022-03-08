@@ -13,9 +13,9 @@
                     <field name="email" widget="email"/>
                     <field name="gender"/>
                     <field name="city"/>
-                    <field name="school_id_1"/>
-                    <field name="departmentss" widget="many2many_tags"/>
-                    <field name="coursess" widget="many2many_tags"/>
+                    <field name="school_id"/>
+                    <field name="departments_ids" widget="many2many_tags"/>
+                    <field name="courses_ids" widget="many2many_tags"/>
                     <field name="appointment_id"/>
                     <field name="checklist_progress" widget="progressbar"/>
                 </tree>
@@ -35,9 +35,9 @@
                             <field name="email" widget="email"/>
                             <field name="gender" widget="radio"/>
                             <field name="city"/>
-                            <field name="school_id_1" widget="selection"/>
-                            <field name="departmentss" widget="many2many_tags"/>
-                            <field name="coursess" widget="many2many_tags"/>
+                            <field name="school_id" widget="selection"/>
+                            <field name="departments_ids" widget="many2many_tags"/>
+                            <field name="courses_ids" widget="many2many_tags"/>
                             <field name="tod"/>
                         </group>
                         <notebook>

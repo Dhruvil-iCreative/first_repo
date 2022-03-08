@@ -8,8 +8,9 @@ class school(models.Model):
     _description = 'school.school'
     school_id = fields.Integer(string="ID")
     name = fields.Char()
-    departments_id_1 = fields.Many2many("department.department", string="Department")
-    courses_id_1 = fields.Many2many(string="Course", compute="compute_courses_of_dept")
+    departments_ids = fields.Many2many("department.department", string="Departments")
+    course_id = fields.Many2many(related="departments_ids.courses_ids", string="Course")
+
     # student_id=fields.One2many("student.student","school_id_1",string="Students")
 
     # def compute_courses_of_dept(self):

@@ -9,7 +9,7 @@
                 <tree>
                     <field name="depart_id"/>
                     <field name="name"/>
-                    <field name="courses_id"/>
+                    <field name="courses_ids"/>
                     <field name="classes"/>
                     <field name="floors"/>
 
@@ -27,7 +27,7 @@
                         <group>
                             <field name="depart_id"/>
                             <field name="name"/>
-                            <field name="courses_id" widget="many2many_tags"/>
+                            <field name="courses_ids" widget="many2many_tags"/>
                             <field name="description"/>
                             <field name="classes"/>
                             <field name="floors"/>
