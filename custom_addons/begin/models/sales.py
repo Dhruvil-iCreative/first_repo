@@ -10,7 +10,7 @@ class SaleOrder(models.Model):
 
     # _description = 'pranali_work.pranali_work'
 
-    customer_id= fields.Char(string="customer Id")
+    customer_id = fields.Char(string="customer Id")
 
 
 

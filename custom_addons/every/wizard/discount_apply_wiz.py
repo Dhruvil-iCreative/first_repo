@@ -7,7 +7,3 @@ class DiscountApplyWiz(models.TransientModel):
 
     def apply_discount(self):
         print("yeah clicked perfectly!")
-
-
-
-

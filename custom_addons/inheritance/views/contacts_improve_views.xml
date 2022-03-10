@@ -1,0 +1,14 @@
+<!--<odoo>-->
+
+<!--    <record model="ir.ui.view" id="improved_contacts_sale_form">-->
+<!--        <field name="name">Improved Contacts Sale</field>-->
+<!--        <field name="model">res.partner</field>-->
+<!--        <field name="inherit_id" ref="sale.view_order_form"/>-->
+<!--        <field name="arch" type="xml"/>-->
+<!--    </record>-->
+
+
+<!--</odoo>-->
+<odoo>
+
+</odoo>
