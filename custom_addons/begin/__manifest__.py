@@ -20,14 +20,15 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale'],
+    'depends': ['base', 'sale'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/sales.xml'
+        'views/sales.xml',
+        'wizard/sale_order_default_wiz_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -12,8 +12,9 @@ class ContactImprove(models.Model):
         return result
 
     @api.model
-    def name_search(self, name, operator='ilike'):
+    def _name_search(self, name='', args=None, operator='=', limit=100, name_get_uid=None):
+        args = args or []
         domain = []
         if name:
-            domain = ['|', '|', ('name', operator, name), ('email', operator, name)]
-        return domain
+            domain = ['|', '|', ('name', operator, name), ('email', operator, name), ('city', operator, name)]
+        return self._search(domain+args, limit=limit, access_rights_uid=name_get_uid)
