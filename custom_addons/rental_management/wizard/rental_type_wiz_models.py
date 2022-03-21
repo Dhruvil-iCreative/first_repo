@@ -10,8 +10,13 @@ class RentalTypeWiz(models.TransientModel):
     code = fields.Integer()
     description = fields.Text()
 
-    @api.model
-    def create(self, vals):
+    def create_rec(self):
         # rtn = super(RentalType, self).create(vals)
-        rtn = self.env['rental.type'].create(vals)
-        return rtn
+        context = self._context
+        self.env[context["active_model"]].create({"name": self.name})
+
+    def update_rec(self):
+        print(self)
+        context = self._context
+        rental_type = self.env[context["active_model"]].browse(context["active_id"])
+        rental_type.write({"name": self.name})

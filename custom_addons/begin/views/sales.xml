@@ -13,6 +13,9 @@
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
                 <button name="default_wiz" type="object" string="Open" class="btn btn-primary"/>
             </xpath>
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="get_values" type="object" string="Values" class="btn btn-primary"/>
+            </xpath>
         </field>
     </record>
 

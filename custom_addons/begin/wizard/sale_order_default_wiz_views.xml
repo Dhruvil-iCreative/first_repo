@@ -22,9 +22,9 @@
                 <form>
                     <group>
                         <field name="customer"/>
-                        <field name="cus_email"/>
+                        <field name="cus_email" widget="email"/>
                         <field name="sale_person"/>
-                        <field name="sale_person_contact"/>
+                        <field name="sale_person_contact" widget="phone"/>
                         <field name="payment_terms"/>
                     </group>
                 </form>

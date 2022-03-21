@@ -20,12 +20,12 @@ class RentalType(models.Model):
     def wizard_perform(self):
         return self.env['ir.actions.act_window']._for_xml_id("rental_management.rental_type_wiz_views_action_window")
 
-    def write(self, values):
-        values.update({
-            'description': 'This field has been edited'
-        })
-        res = super(RentalType, self).write(values)
-        return res
+    # def write(self, values):
+    #     values.update({
+    #         'description': 'This field has been edited'
+    #     })
+    #     res = super(RentalType, self).write(values)
+    #     return res
 
     def write_name(self):
         self.write({

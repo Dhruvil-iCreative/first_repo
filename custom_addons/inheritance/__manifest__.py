@@ -25,7 +25,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/inherit_views.xml',
-        'views/contacts_improve_views.xml',
+        'views/contact_improve_views.xml',
     ],
     # only loaded in demonstration mode
     # 'demo': [

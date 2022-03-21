@@ -3,7 +3,6 @@ from odoo import models, fields, api
 
 class SaleOrderDefaultWiz(models.TransientModel):
     _name = "default.wiz"
-    _inherit = 'sale.order'
 
     customer = fields.Char()
     cus_email = fields.Char()
@@ -12,10 +11,14 @@ class SaleOrderDefaultWiz(models.TransientModel):
     payment_terms = fields.Char()
 
     @api.model
-    def default_get(self, vals):
-        res = super(SaleOrderDefaultWiz, self).default_get(vals)
-        if res.get('is_mostafeed', False):
-            vals = [(0, 0, {'outcome_amount': 900, 'type': asha}),
-                    (0, 0, {'outcome_amount': 150, 'type': kesaa}),
-                    (0, 0, {'outcome_amount': 140, 'type': water})]
-            res.update({'outcomes': vals})
+    def default_get(self, fields):
+        vals = super(SaleOrderDefaultWiz, self).default_get(fields)
+        customer = self.env['sale.order'].browse([self.env.context.get('active_id')])
+        vals.update({
+            'customer': customer.partner_id.name,
+            'cus_email': customer.email,
+            'sale_person': customer.user_id.name,
+            'sale_person_contact': customer.user_id.phone,
+            'payment_terms': customer.payment_term_id.name,
+        })
+        return vals

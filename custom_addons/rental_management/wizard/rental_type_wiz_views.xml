@@ -12,7 +12,8 @@
                         <field name="description"/>
                     </group>
                     <footer>
-                        <button string="Create" type="object" name="create"/>
+                        <button string="Create" type="object" name="create_rec"/>
+                        <button string="Update" type="object" name="update_rec"/>
                         <button string="Cancel" special="cancel" class="btn btn-secondary"/>
                     </footer>
                 </form>

@@ -11,6 +11,7 @@ class begin(models.Model):
     value = fields.Integer()
     value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
+    uids = fields.One2many("sale.order", "uids", string="User_ids")
 
     @api.depends('value')
     def _value_pc(self):
