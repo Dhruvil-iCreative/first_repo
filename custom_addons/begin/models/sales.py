@@ -28,10 +28,12 @@ class SaleOrder(models.Model):
         res = self.env['res.partner'].search([("email", '!=', False)]).read(['name', 'email'])
         res1 = self.env['res.partner'].browse([3, 15]).read(['name'])
         res2 = self.env['res.partner'].search_read([("email", "!=", False)], fields=['name', 'email'])
+        res3 = self.env['sale.order'].browse([self.env.context.get('active_id')]).read(['name'])
         print(res, "****************************************")
         print(res1, "############@########################################")
         print(res2, "$$$$$$$$$$$$$$$$$$$$$$$$$%$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-        return res, res1, res2
+        print(res3, "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        return res, res1, res2, res3
 
     def action_confirm(self):
         count = 0

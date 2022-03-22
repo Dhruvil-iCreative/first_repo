@@ -26,10 +26,11 @@
         'security/ir.model.access.csv',
         'views/inherit_views.xml',
         'views/contact_improve_views.xml',
+        'views/settings_config.xml',
     ],
     # only loaded in demonstration mode
     # 'demo': [
     #     'demo/demo.xml',
     # ],
-    'license':"LGPL-3"
+    'license': "LGPL-3"
 }

@@ -12,8 +12,5 @@ class inhertance(models.Model):
 class added(models.Model):
     _inherit = "inheritance_trial"
 
-    mobile=fields.Char()
-    email=fields.Char()
-
-
-
+    mobile = fields.Char()
+    email = fields.Char()
