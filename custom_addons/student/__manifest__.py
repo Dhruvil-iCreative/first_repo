@@ -30,6 +30,8 @@
         'views/professor_views.xml',
         'views/tasks_views.xml',
         'views/menu.xml',
+        'reports/report_templates.xml',
+        'reports/report.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

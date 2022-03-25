@@ -15,7 +15,7 @@
                     <field name="city"/>
                     <field name="school_id"/>
                     <field name="departments_ids" widget="many2many_tags"/>
-                    <field name="courses_ids" widget="many2many_tags"/>
+                    <field name="courses_ids"/>
                     <field name="appointment_id"/>
                     <field name="checklist_progress" widget="progressbar"/>
                 </tree>
@@ -37,7 +37,7 @@
                             <field name="city"/>
                             <field name="school_id" widget="selection"/>
                             <field name="departments_ids" widget="many2many_tags"/>
-                            <field name="courses_ids" widget="many2many_tags"/>
+                            <field name="courses_ids"/>
                             <field name="tod"/>
                         </group>
                         <notebook>

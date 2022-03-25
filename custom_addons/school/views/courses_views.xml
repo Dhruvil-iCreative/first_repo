@@ -7,9 +7,10 @@
             <field name="model">courses.courses</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="course_id"/>
+                    <field name="course_code"/>
                     <field name="name"/>
                     <field name="duration"/>
+                    <field name="duration_year"/>
                     <field name="fees"/>
                 </tree>
             </field>
@@ -23,9 +24,10 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="course_id"/>
+                            <field name="course_code"/>
                             <field name="name"/>
                             <field name="duration"/>
+                            <field name="duration_year"/>
                             <field name="fees"/>
                         </group>
                     </sheet>

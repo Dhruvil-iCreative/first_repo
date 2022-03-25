@@ -1,12 +1,12 @@
 from odoo import models, fields, api
 
 
-class professor(models.Model):
+class Professor(models.Model):
     _name = 'professor.professor'
 
-    name = fields.Char(string="Professor Name")
+    name = fields.Char(string="Professor Name", required=True)
     age = fields.Integer()
-    specialization_course_id = fields.Many2one('courses.courses', string="Specialization")
+    specialization_course_id = fields.Many2one('courses.courses', string="Specialization", required=True)
     experience = fields.Integer()
     online = fields.Boolean('Teaches Online??')
     scheduled_appnt_id = fields.One2many('appointment.appointment', 'prof_name', string="Scheduled_appointment")

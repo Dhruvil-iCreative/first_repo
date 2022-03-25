@@ -13,7 +13,6 @@ class ResConfigSettings(models.TransientModel):
         res = super(ResConfigSettings, self).get_values()
         res['is_checked'] = self.env['ir.config_parameter'].get_param(
             'inheritance.is_checked')
-
         res['description'] = self.env['ir.config_parameter'].get_param(
             'inheritance.description')
         res['company_id'] = int(self.env['ir.config_parameter'].get_param(
@@ -24,7 +23,6 @@ class ResConfigSettings(models.TransientModel):
     def set_values(self):
         self.env['ir.config_parameter'].set_param(
             'inheritance.is_checked', self.is_checked)
-
         self.env['ir.config_parameter'].set_param(
             'inheritance.description', self.description)
         self.env['ir.config_parameter'].set_param(

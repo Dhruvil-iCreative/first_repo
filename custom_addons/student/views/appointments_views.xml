@@ -26,7 +26,7 @@
                             <field name="date"/>
                             <field name="prof_name"/>
                             <field name="student_id"/>
-                            <field name="emergency"/>
+                            <field name="emergency" widget="radio"/>
                             <field name="emergency_1"/>
                         </group>
                     </sheet>

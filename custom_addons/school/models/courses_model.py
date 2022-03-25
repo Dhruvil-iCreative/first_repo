@@ -1,16 +1,17 @@
 from odoo import models, fields, api
 
 
-class courses(models.Model):
+class Courses(models.Model):
     _name = 'courses.courses'
 
-    course_id = fields.Integer()
-    name = fields.Char()
-    duration = fields.Integer()
+    course_code = fields.Integer()
+    name = fields.Char(required=True)
+    duration = fields.Integer(string="Duration in Months")
+    duration_year = fields.Float(compute="duration_in_year", string="Duration in Years")
     description = fields.Text()
-    fees = fields.Integer()
+    fees = fields.Integer(required=True)
 
-    # @api.depends('duration')
-    # def _value_pc(self):
-    #     for record in self:
-    #         record.duration_1 = int(record.duration)+"months"
+    @api.depends('duration')
+    def duration_in_year(self):
+        for record in self:
+            record.duration_year = record.duration/12
