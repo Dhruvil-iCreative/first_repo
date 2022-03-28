@@ -29,6 +29,19 @@
                 <form>
                     <sheet>
                         <group>
+                            <div class="oe_button_box" name="button_box">
+                                <button name="appointment_domain_list"
+                                        type="object"
+                                        class="oe_stat_button"
+                                        icon="fa-history">
+                                    <div class="o_stat_info">
+                                        <field name="appointment_count" class="o_stat_value"/>
+                                        <span class="o_stat_text">Appointments</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </group>
+                        <group>
                             <field name="fname"/>
                             <field name="lname"/>
                             <field name="mobile" widget="phone"/>
@@ -82,29 +95,6 @@
         </record>
 
 
-        <!-- server action to the one above -->
-        <!--
-            <record model="ir.actions.server" id="student.action_server">
-              <field name="name">student server</field>
-              <field name="model_id" ref="model_student_student"/>
-              <field name="state">code</field>
-              <field name="code">
-                action = {
-                  "type": "ir.actions.act_window",
-                  "view_mode": "tree,form",
-                  "res_model": model._name,
-                }
-              </field>
-            </record>
-        -->
-
-
-        <!--    <menuitem name="Menu 2" id="student.menu_2" parent="student.menu_root"/>-->
-
-        <!-- actions -->
-
-        <!--    <menuitem name="Server to list" id="student" parent="student.menu_2"-->
-        <!--              action="student.action_server"/>-->
 
     </data>
 </odoo>

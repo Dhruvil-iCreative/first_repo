@@ -24,6 +24,7 @@ class Student(models.Model):
     checklist_progress = fields.Float(compute="tasks_progress", string="Progress", store=True, default=0.0)
     tod = fields.Datetime(comodel_name='Date current action', default=lambda self: fields.Datetime.now(),
                           string="Apply On")
+    appointment_count = fields.Integer(compute="_compute_appointment_count")
 
     @api.depends('task_ids')
     def tasks_progress(self):
@@ -39,3 +40,19 @@ class Student(models.Model):
         for rec in self:
             ids = rec.departments_ids.courses_ids.ids
             rec.write({"courses_ids": [(6, 0, ids)]})
+
+    def _compute_appointment_count(self):
+        for rec in self:
+            rec.appointment_count = self.env['appointment.appointment'].search_count([("student_id", "=", rec.id)])
+
+
+    def appointment_domain_list(self):
+        return {
+            'name': 'Appointment',
+            'domain': [('student_id', '=', self.id)],
+            'view_type': 'form',
+            'res_model': 'appointment.appointment',
+            'view_id': False,
+            'view_mode': 'tree,form',
+            'type': 'ir.actions.act_window'
+        }

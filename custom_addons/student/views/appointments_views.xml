@@ -42,21 +42,5 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-
-        <!-- server action to the one above -->
-
-        <!--    <record model="ir.actions.server" id="school.action_server">-->
-        <!--      <field name="name">school server</field>-->
-        <!--      <field name="model_id" ref="model_school_school"/>-->
-        <!--      <field name="state">code</field>-->
-        <!--      <field name="code">-->
-        <!--        action = {-->
-        <!--          "type": "ir.actions.act_window",-->
-        <!--          "view_mode": "tree,form",-->
-        <!--          "res_model": model._name,-->
-        <!--        }-->
-        <!--      </field>-->
-        <!--    </record>-->
-
     </data>
 </odoo>

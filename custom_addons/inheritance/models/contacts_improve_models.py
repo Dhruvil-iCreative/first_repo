@@ -13,12 +13,14 @@ class ContactImprove(models.Model):
 
     def name_get(self):
         result = []
-        for rec in self:
-            if rec.phone:
-                result.append((rec.id, f"{rec.name} - {rec.phone}"))
-            else:
-                result.append((rec.id, f"{rec.name}"))
-        return result
+        if self._context.get("rental"):
+            for rec in self:
+                if rec.phone:
+                    result.append((rec.id, f"{rec.name} - {rec.phone}"))
+                else:
+                    result.append((rec.id, f"{rec.name}"))
+            return result
+        return super(ContactImprove, self).name_get()
 
     @api.model
     def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):

@@ -30,6 +30,7 @@
         'views/professor_views.xml',
         'views/tasks_views.xml',
         'views/menu.xml',
+        'reports/paper_format_student_report.xml',
         'reports/report_templates.xml',
         'reports/report.xml',
         'views/templates.xml',
