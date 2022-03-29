@@ -6,7 +6,7 @@ class OrganizationExpense(models.Model):
     _description = "All orphan expenses are recorded here."
 
     expense_user = fields.Char(string="Name", help="Spender name..!", required=True)
-    expense_type_id = fields.Many2one("expense.type",string="Expense type",required=True)
+    expense_type_id = fields.Many2one("expense.type", string="Expense type", required=True)
     currency_id = fields.Many2one("res.currency",
                                   string="Currency",
                                   default=20)

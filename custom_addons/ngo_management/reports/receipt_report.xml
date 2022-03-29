@@ -19,6 +19,6 @@
         <field name="report_file">ngo_management.donation_receipt_sub_template</field>
         <field name="binding_model_id" ref="model_orphans_organization_donation"/>
         <field name="binding_type">report</field>
-        <field name="paperformat_id" ref="orphans_doner_paperformat"/>
+        <field name="paperformat_id" ref="donation_report_paperformat"/>
     </record>
 </odoo>

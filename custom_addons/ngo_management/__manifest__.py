@@ -35,8 +35,12 @@
         'views/organization_advertise.xml',
 
         'reports/doner_paper_format.xml',
+        'reports/donation_paper_format.xml',
         'reports/template.xml',
+        'reports/donation_details_templates.xml',
+        'reports/expense_template.xml',
         'reports/receipt_report.xml',
+        'reports/expense_report.xml',
     ],
     # only loaded in demonstration mode
     'license': 'LGPL-3',

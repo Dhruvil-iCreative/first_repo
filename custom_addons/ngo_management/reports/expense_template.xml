@@ -1,9 +1,9 @@
 <odoo>
-    <template id="donation_receipt_main_template">
+    <template id="expense_details_main_template">
         <t t-call="web.external_layout">
             <t t-call="web.html_container">
                 <center>
-                    <h1>Donation Receipt</h1>
+                    <h1>Expense List</h1>
                 </center>
                 <br/>
                 <br/>
@@ -27,13 +27,13 @@
                                 <t t-foreach="docs" t-as="doc">
                                     <tr>
                                         <td>
-                                            <span t-field="doc.name"/>
+                                            <span t-field="doc.expense_user"/>
                                         </td>
                                         <td>
                                             <span t-field="doc.organization_id"/>
                                         </td>
                                         <td>
-                                            <span t-field="doc.amount"/>
+                                            <span t-field="doc.expense_amount"/>
                                         </td>
                                     </tr>
                                 </t>
@@ -47,10 +47,10 @@
     </template>
 
 
-    <template id="donation_receipt_sub_template">
+    <template id="expense_details_sub_template">
         <t t-call="web.html_container">
             <t t-cal="web.external_layout">
-                <t t-call="ngo_management.donation_receipt_main_template"/>
+                <t t-call="ngo_management.expense_details_main_template"/>
             </t>
         </t>
     </template>

@@ -17,13 +17,13 @@ class every(models.Model):
     city_1 = fields.Char(related="partner_id.city",readonly=False)
 
     def action_process(self):
-        self.state="in_process"
+        self.state = "in_process"
 
     def action_confirm(self):
-        self.state="confirm"
+        self.state = "confirm"
 
     def action_cancel(self):
-        self.state="cancel"
+        self.state = "cancel"
 
     @api.depends('t_doc_exp')
     def _value_pc_1(self):
