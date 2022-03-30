@@ -45,7 +45,6 @@ class Student(models.Model):
         for rec in self:
             rec.appointment_count = self.env['appointment.appointment'].search_count([("student_id", "=", rec.id)])
 
-
     def appointment_domain_list(self):
         return {
             'name': 'Appointment',

@@ -18,6 +18,7 @@ class OrphansOrganization(models.Model):
 
     # available_fund = fields.Integer(string="Available Funds")
     foundation_years = fields.Selection(selection="foundation_y", string="Foundation Year")
+    orphan_members = fields.Integer(compute='total_orphan_members')
 
     # orphan_member = fields.Char(string='Orphan Member')
     @api.onchange('state_id')
@@ -29,8 +30,17 @@ class OrphansOrganization(models.Model):
         return x
         # return tuple(enumerate(x))
 
-    def tempSmartButton(self):
-        pass
+    def members_action(self):
+        print("*****************************", self)
+        return {
+            'name': 'Orphan Members',
+            'view_mode': 'tree',
+            'domain': [('organization_name', '=ilike', self.name)],
+            'res_model': 'orphans.member',
+            'type': 'ir.actions.act_window',
+        }
+        
+
 
     def tempSmartButton2(self):
         pass
@@ -44,3 +54,12 @@ class OrphansOrganization(models.Model):
             else:
                 res.append((rec.id, '%s (%s)' % (rec.name, rec.ngo_id.name)))
         return res
+
+    def total_orphan_members(self):
+
+        """
+        counting courses 'not yet complete'
+        """
+        for rec in self:
+            res = self.env['orphans.member'].search_count([("organization_name", "=", rec.name)])
+            rec.orphan_members = res

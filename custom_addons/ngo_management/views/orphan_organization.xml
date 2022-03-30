@@ -8,8 +8,15 @@
                 <form>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
-                            <button string="Orphan Members" type="object" name="tempSmartButton"
-                                    class="oe_stat_button" icon="fa-external-link"/>
+                            <button name="members_action"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-history">
+                                <div class="o_stat_info">
+                                    <field name="orphan_members" class="o_stat_value"/>
+                                    <span class="o_stat_text">Orphan Members</span>
+                                </div>
+                            </button>
                             <button string="Available Funds" type="object" name="tempSmartButton2"
                                     class="oe_stat_button" icon="fa-external-link"/>
                         </div>
@@ -20,7 +27,8 @@
                         </div>
                         <group>
                             <group>
-                                <field name="ngo_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
+                                <field name="ngo_id"
+                                       options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
                                 <field name="street1" placeholder="Street 1"/>
                                 <field name="street2" string="" placeholder="Street 2"/>
                             </group>

@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class OrphansMember(models.Model):
@@ -17,6 +17,7 @@ class OrphansMember(models.Model):
     zip = fields.Char()
     country = fields.Char()
     address = fields.Text(string='Address', compute='addr_field')
+
 
     def addr_field(self):
         self.address = ",\n".join([str(self.street1),

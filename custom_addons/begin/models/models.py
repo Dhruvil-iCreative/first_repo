@@ -3,17 +3,12 @@
 from odoo import models, fields, api
 
 
-class begin(models.Model):
-    _name = 'begin.begin'
-    _description = 'begin.begin'
-    id = fields.Integer()
-    name = fields.Char()
-    value = fields.Integer()
-    value2 = fields.Float(compute="_value_pc", store=True)
-    description = fields.Text()
-    uids = fields.One2many("sale.order", "uids", string="User_ids")
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
 
-    @api.depends('value')
-    def _value_pc(self):
-        for record in self:
-            record.value2 = float(record.value) / 100
+    def AddTag(self):
+        # for rec in self:
+        #     tag = self.env['res.partner.category'].search([("name", "=", "Best partner EVER")])
+        #     if rec.customer_rank >= 5:
+        #         rec.write({"category_id": [(4, tag)]})
+        pass

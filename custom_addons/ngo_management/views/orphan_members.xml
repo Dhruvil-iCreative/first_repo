@@ -9,8 +9,6 @@
                 <field name="age"/>
                 <field name="guardian_name"/>
                 <field name="organization_name"/>
-
-
             </tree>
         </field>
     </record>
@@ -18,7 +16,5 @@
         <field name="name">Orphans member</field>
         <field name="res_model">orphans.member</field>
         <field name="view_mode">tree</field>
-        <field name="view_id" ref="orphans_member_tree"/>
     </record>
-
 </odoo>

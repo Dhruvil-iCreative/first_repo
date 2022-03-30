@@ -72,3 +72,6 @@ class OrphansRequest(models.Model):
 
     def Cancel_button(self):
         self.write({'state': 'cancel'})
+
+    # def default_get(self):
+
