@@ -1,7 +1,7 @@
-from odoo import fields, models, api
+from odoo import fields, models
 
 
-class OrphansMember(models.Model):
+class orphans_member(models.Model):
     _name = 'orphans.member'
     _description = "Orphans request can accept and add by managers and users"
 
@@ -9,6 +9,8 @@ class OrphansMember(models.Model):
     dob = fields.Date(string="DOB", required=True, help="Date of Birth")
     guardian_name = fields.Char(string="Guardian Name")
     organization_name = fields.Char(string="Orphan Organization", required=True)
+    organizationid = fields.Integer()
+    ngo_name=fields.Char()
     age = fields.Char(string="Age", required=True)
     street1 = fields.Char(string='Address')
     street2 = fields.Char()
@@ -17,7 +19,6 @@ class OrphansMember(models.Model):
     zip = fields.Char()
     country = fields.Char()
     address = fields.Text(string='Address', compute='addr_field')
-
 
     def addr_field(self):
         self.address = ",\n".join([str(self.street1),

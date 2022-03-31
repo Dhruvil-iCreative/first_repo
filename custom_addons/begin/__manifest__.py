@@ -25,10 +25,12 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/res_partner_category.xml',
+        'wizard/sale_order_default_wiz_views.xml',
+        'wizard/add_product_wiz.xml',
         'views/sales.xml',
         'views/res_partner.xml',
         'views/templates.xml',
-        'wizard/sale_order_default_wiz_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

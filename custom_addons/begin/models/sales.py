@@ -45,3 +45,11 @@ class SaleOrder(models.Model):
             return super(SaleOrder, self).action_confirm()
         else:
             raise UserError('You can only add max 3 lines per order.')
+
+    @api.model
+    def create(self, vals):
+        res = super(SaleOrder, self).create(vals)
+        if res.partner_id.customer_rank > 5:
+            best_categ_id = self.env.ref("begin.res_partner_category_best_customer").id
+            res.partner_id.write({'category_id': [(4, best_categ_id)]})
+        return res
